@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Author, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_db_column(:firstname).with_options(null: false) }
+  it { should have_db_column(:lastname).with_options(null: false) }
+  it { should have_db_column(:biography) }
+  it { should have_many(:books) }
 end

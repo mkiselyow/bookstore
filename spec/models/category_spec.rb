@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_db_column(:title).with_options(null: false) }
+
+  describe "validations" do
+    subject { Category.create(title: "SampleTitle") }
+    it { should validate_uniqueness_of(:title) }
+  end
 end
