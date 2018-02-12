@@ -6,6 +6,8 @@ class Order < ApplicationRecord
   :inclusion  => { :in => ["in progress", "complited", "shipped"],
   :message    => "%{value} is not in_progress/complited/shipped" }
   has_many :order_items
+  has_one :shipping_address
+  has_one :billing_address
   belongs_to :customer
   belongs_to :credit_card
 

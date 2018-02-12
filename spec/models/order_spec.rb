@@ -12,4 +12,6 @@ RSpec.describe Order, type: :model do
   it { should belong_to(:credit_card) }
   it { should belong_to(:customer) }
   it { should have_many(:order_items) }
+  it { should have_one(:shipping_address) }
+  it { should have_one(:billing_address) }
 end
