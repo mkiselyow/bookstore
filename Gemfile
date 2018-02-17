@@ -39,6 +39,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem "factory_bot_rails", "~> 4.0"
+  gem "database_cleaner"
 end
 
 group :development do
@@ -62,7 +64,9 @@ gem "rspec-rails", :group => [:development, :test]
 gem 'cancancan', '~> 2.0'
 gem 'devise', '~> 4.4.0'
 gem 'haml', '~> 5.0.0'
-gem "haml-rails", "~> 1.0", :group => :development
+gem 'activeadmin', '~> 1.2.0'
+gem 'draper', '~> 3.0.0'
+gem 'omniauth', '~> 1.8', '>= 1.8.1'
 
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.0'
@@ -70,3 +74,4 @@ gem 'jquery-rails', '~> 4.3.0'
 
 gem 'font-awesome-rails', '~> 4.7.0.0'
 gem 'jquery-ui-rails', '~> 6.0.0'
+gem 'country_select', '~> 3.1.0'

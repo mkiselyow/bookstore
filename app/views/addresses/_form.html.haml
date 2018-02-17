@@ -1,0 +1,22 @@
+.form-group.has-error
+  =f.label :firstname, 'First Name', class: 'control-label input-label', for: "firstName_#{model}"
+  =f.text_field :firstname, class: 'form-control', id: "firstName_#{model}", placeholder: 'First Name', name:"fname"
+%span.help-block Please enter your first name
+.form-group
+  =f.label :lastname, 'Last Name', class: 'control-label input-label', for: "lastName_#{model}"
+  =f.text_field :lastname, class: 'form-control', id: "lastName_#{model}", placeholder: 'Last Name', name:"lname"
+.form-group
+  =f.label :address, 'Address', class: 'control-label input-label', for: "address_#{model}"
+  =f.text_field :address, class: 'form-control', id: "address_#{model}", placeholder: 'Address', name:"address"
+.form-group
+  =f.label :city, 'City', class: 'control-label input-label', for: "city_#{model}"
+  =f.text_field :city, class: 'form-control', id: "city_#{model}", placeholder: 'City', name:"city"
+.form-group
+  =f.label :zip, 'Zip-Code', class: 'control-label input-label', for: "zip_#{model}"
+  =f.text_field :zip, class: 'form-control', id: "zip_#{model}", placeholder: 'Zip', name:"zip"
+.form-group
+  =f.label :country_code, 'Country', for: "country_code_#{model}"
+  =f.country_select("country_code", { priority_countries: ["UA", "GB"], selected: "UA", name: 'country_code', id: "country_code_#{model}" }, { class: 'form-control', data: { attribute: "value" } })
+.form-group
+  =f.label :phone, 'Phone Number', class: 'control-label input-label', for: "phone_#{model}"
+  =f.text_field :phone, class: 'form-control', id: "phone_#{model}", placeholder: 'Example +355 66 123 4567', name: "phone"

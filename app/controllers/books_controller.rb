@@ -1,12 +1,9 @@
 class BooksController < ApplicationController
-  def index
-  end
+  def index; end
 
   def home
-    render "home"
+    flash[:notice] = "Post successfully created"
   end
 
-  def show
-    render "book_page"
-  end
+  def show;  end
 end
