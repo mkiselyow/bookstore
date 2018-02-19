@@ -1,4 +1,6 @@
 %main.container
+  =ACTIVE_ADMIN_LOGIN
+  %h1=t('.title')
   %h1.general-title-margin Checkout
   %ul.steps.list-inline
     %li.step.active
@@ -20,7 +22,7 @@
     %li.step
       %span.step-number 5
       %span.step-text.hidden-xs Complete
-  =form_with url: orders_path, class: 'res-mb-100' do |f|
+  =form_with url: addresses_path, class: 'res-mb-100' do |f|
     .hidden-xs.hidden-sm
       .row
         .col-md-5

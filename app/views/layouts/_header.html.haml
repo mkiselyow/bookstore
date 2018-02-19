@@ -7,10 +7,10 @@
         %span.icon-bar
         %span.icon-bar
       %a.navbar-brand Bookstore
-      %a.shop-link.pull-right.visible-xs{href: "#"}
+      =link_to new_order_url, class: 'shop-link pull-right visible-xs' do
         %span.shop-icon
           %span.shop-quantity 3
-    %a.shop-link.pull-right.hidden-xs{href: "#"}
+    =link_to new_order_url, class: 'shop-link pull-right hidden-xs' do
       %span.shop-icon
         %span.shop-quantity 3
     #navbar.navbar-collapse.collapse.pl-30{'aria-expanded': "false"}
@@ -19,9 +19,11 @@
           %span{'aria-hidden': "true"} &times;
         %ul.nav.navbar-nav
           %li
-            =link_to "Home", home_path
+            =link_to "Home", home_url
           %li
-            =button_to "Shop", data_toggle: 'collapse', aria_expanded: 'false', aria_controls: 'menu', id: 'menu'
+            =link_to "Catalog", books_url
+          %li
+            =button_to "Shop", books_url, data_toggle: 'collapse', aria_expanded: 'false', aria_controls: 'menu', id: 'menu'
             %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
               %li
                 =link_to "Mobile development", class: 'collapse-link'
@@ -30,11 +32,21 @@
               %li
                 =link_to "Web design", class: 'collapse-link'
           %li
-            =link_to "My account"
+            =link_to "My account", edit_customer_registration_url
+          %li
+            =link_to "Sign in", new_customer_session_url
+          %li
+            =link_to "Sign up", new_customer_registration_url
+          %li
+            =link_to "English", home_url(locale: :en)
+          %li
+            =link_to "Russian", home_url(locale: :ru)
       .hidden-xs
         %ul.nav.navbar-nav
           %li
-            =link_to "Home", home_path
+            =link_to "Home", home_url
+          %li
+            =link_to "Catalog", books_url
           %li.dropdown
             
             %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"} Shop
@@ -47,6 +59,14 @@
                 =link_to "Web design"
               %li.divider{role: "separator"}
               %li
-                =link_to "Log out"
+                =link_to "Log out", destroy_customer_session_url
           %li
-            =link_to "My account"
+            =link_to "My account", edit_customer_registration_url
+          %li
+            =link_to "Sign in", new_customer_session_url
+          %li
+            =link_to "Sign up", new_customer_registration_url
+          %li
+            =link_to "English", "http://en.localhost:3000#{request.env['PATH_INFO']}"
+          %li
+            =link_to "Russian", "http://ru.localhost:3000#{request.env['PATH_INFO']}"

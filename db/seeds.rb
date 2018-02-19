@@ -27,3 +27,4 @@ Rating.create(
   rating_number: "1",
   book_id: 1, 
   customer_id: customers)
+AdminUser.create!(email: ACTIVE_ADMIN_LOGIN, password: ACTIVE_ADMIN_PASSWORD, password_confirmation: ACTIVE_ADMIN_PASSWORD) if Rails.env.development? || Rails.env.test?

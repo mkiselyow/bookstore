@@ -39,8 +39,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem "factory_bot_rails", "~> 4.0"
-  gem "database_cleaner"
+  gem "factory_bot_rails", '~> 4.0'
+  gem "database_cleaner", '~> 1.6.0'
 end
 
 group :development do
@@ -67,6 +67,7 @@ gem 'haml', '~> 5.0.0'
 gem 'activeadmin', '~> 1.2.0'
 gem 'draper', '~> 3.0.0'
 gem 'omniauth', '~> 1.8', '>= 1.8.1'
+gem 'rails-i18n', '~> 5.1.0'
 
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.0'

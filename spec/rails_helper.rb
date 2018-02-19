@@ -29,6 +29,9 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+  config.before(:each) do
+    Rails.application.load_seed # loading seeds
+  end
 end
 
 Shoulda::Matchers.configure do |config|
@@ -43,4 +46,3 @@ Capybara.register_driver :selenium_chrome do |app|
 end
 
 Capybara.javascript_driver = :selenium_chrome
-

@@ -1,10 +1,10 @@
 FactoryBot.define do
+  factory :admin_user do
+    
+  end
   sequence :email do |n|
     "person#{n}@gmail.com"
   end
-end
-
-FactoryBot.define do
   factory :customer, :class => 'Customer' do
     email
     firstname              "Test Customer"
