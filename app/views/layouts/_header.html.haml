@@ -6,7 +6,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand Bookstore
+      %a.navbar-brand=t('.bookstore')
       =link_to new_order_url, class: 'shop-link pull-right visible-xs' do
         %span.shop-icon
           %span.shop-quantity 3
@@ -19,54 +19,54 @@
           %span{'aria-hidden': "true"} &times;
         %ul.nav.navbar-nav
           %li
-            =link_to "Home", home_url
+            =link_to t('.home'), home_url
           %li
-            =link_to "Catalog", books_url
+            =link_to t('.catalog'), books_url
           %li
-            =button_to "Shop", books_url, data_toggle: 'collapse', aria_expanded: 'false', aria_controls: 'menu', id: 'menu'
+            =button_to t('.shop'), books_url, data_toggle: 'collapse', aria_expanded: 'false', aria_controls: 'menu', id: 'menu'
             %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
               %li
-                =link_to "Mobile development", class: 'collapse-link'
+                =link_to t('.mob_dev'), class: 'collapse-link'
               %li
-                =link_to "Photo", class: 'collapse-link'
+                =link_to t('.photo'), class: 'collapse-link'
               %li
-                =link_to "Web design", class: 'collapse-link'
+                =link_to t('.web_design'), class: 'collapse-link'
           %li
-            =link_to "My account", edit_customer_registration_url
+            =link_to t('.my_account'), edit_customer_registration_url
           %li
-            =link_to "Sign in", new_customer_session_url
+            =link_to t('.sign_in'), new_customer_session_url
           %li
-            =link_to "Sign up", new_customer_registration_url
+            =link_to t('.sign_up'), new_customer_registration_url
           %li
-            =link_to "English", home_url(locale: :en)
+            =link_to t('.en'), home_url(locale: :en)
           %li
-            =link_to "Russian", home_url(locale: :ru)
+            =link_to t('.ru'), home_url(locale: :ru)
       .hidden-xs
         %ul.nav.navbar-nav
           %li
-            =link_to "Home", home_url
+            =link_to t('.home'), home_url
           %li
-            =link_to "Catalog", books_url
+            =link_to t('.catalog'), books_url
           %li.dropdown
             
-            %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"} Shop
+            %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}=t('.shop')
             %ul.dropdown-menu
               %li
-                =link_to "Mobile development"
+                =link_to t('.web_dev')
               %li
-                =link_to "Photo"
+                =link_to t('.photo')
               %li
-                =link_to "Web design"
+                =link_to t('.web_design')
               %li.divider{role: "separator"}
               %li
-                =link_to "Log out", destroy_customer_session_url
+                =link_to t('.log_out'), destroy_customer_session_url
           %li
-            =link_to "My account", edit_customer_registration_url
+            =link_to t('.my_account'), edit_customer_registration_url
           %li
-            =link_to "Sign in", new_customer_session_url
+            =link_to t('.sign_in'), new_customer_session_url
           %li
-            =link_to "Sign up", new_customer_registration_url
+            =link_to t('.sign_up'), new_customer_registration_url
           %li
-            =link_to "English", "http://en.localhost:3000#{request.env['PATH_INFO']}"
+            =link_to t('.en'), "http://en.localhost:3000#{request.env['PATH_INFO']}"
           %li
-            =link_to "Russian", "http://ru.localhost:3000#{request.env['PATH_INFO']}"
+            =link_to t('.ru'), "http://ru.localhost:3000#{request.env['PATH_INFO']}"
