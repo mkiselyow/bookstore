@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218085037) do
+ActiveRecord::Schema.define(version: 20180221133117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,15 +156,15 @@ ActiveRecord::Schema.define(version: 20180218085037) do
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
-  create_table "ratings", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.text "text_review"
     t.integer "rating_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "book_id"
     t.bigint "customer_id"
-    t.index ["book_id"], name: "index_ratings_on_book_id"
-    t.index ["customer_id"], name: "index_ratings_on_customer_id"
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["customer_id"], name: "index_reviews_on_customer_id"
   end
 
   add_foreign_key "addresses", "orders"
@@ -175,6 +175,6 @@ ActiveRecord::Schema.define(version: 20180218085037) do
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "credit_cards"
   add_foreign_key "orders", "customers"
-  add_foreign_key "ratings", "books"
-  add_foreign_key "ratings", "customers"
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "customers"
 end

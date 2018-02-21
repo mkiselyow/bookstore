@@ -38,9 +38,9 @@
           %li
             =link_to t('.sign_up'), new_customer_registration_url
           %li
-            =link_to t('.en'), home_url(locale: :en)
+            =link_to t('.en'), "http://en.localhost:3000#{request.env['PATH_INFO']}"
           %li
-            =link_to t('.ru'), home_url(locale: :ru)
+            =link_to t('.ru'), "http://ru.localhost:3000#{request.env['PATH_INFO']}"
       .hidden-xs
         %ul.nav.navbar-nav
           %li

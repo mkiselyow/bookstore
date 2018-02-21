@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
   end
 
   def show; end
+
+  def order_view; end
   
   def new
     @order = Order.new
