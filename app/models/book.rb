@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   validates :books_in_stock, presence: true
   belongs_to :author
   belongs_to :category
-  has_many :ratings
+  has_many :reviews
 
   def price_in_eu
     ActionController::Base.helpers.number_to_currency(

@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
   # validates :email, uniqueness: true
   validates_uniqueness_of :email
   has_many :orders
-  has_many :ratings
+  has_many :reviews
 
   # def create_order
   # end

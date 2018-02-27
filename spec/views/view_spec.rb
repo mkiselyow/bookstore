@@ -11,7 +11,6 @@ describe "the home page", :type => :feature do
 
   it "flash message renders" do
     visit '/'
-    expect(page).to have_content 'Checkout'
     expect(page).to have_content 'Post successfully created'
   end
 end

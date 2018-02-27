@@ -18,6 +18,15 @@ Rails.application.routes.draw do
     get 'book_by_title/:title', to: 'books#show', as: "book_by_title"
     post 'addresses', to: 'addresses#create'
     root to: 'books#home', as: "home"
+    get 'checkout/complete', to: 'checkouts#complete'
+    get 'checkout/confirm', to: 'checkouts#confirm'
+    get 'checkout/delivery', to: 'checkouts#delivery'
+    get 'checkout/payment', to: 'checkouts#payment'
+    get 'checkout/shipping_billing', to: 'checkouts#shipping_billing'
+    get 'des/log_in', to: 'des#log_in'
+    get 'des/new_password', to: 'des#new_password'
+    get 'des/password', to: 'des#password'
+    get 'des/settings', to: 'des#settings'
   end
   devise_for :customers, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'customers/omniauth_callbacks'}
 end

@@ -6,5 +6,5 @@ RSpec.describe Book, type: :model do
   it { should have_db_column(:books_in_stock).with_options(null: false) }
   it { should belong_to(:author) }
   it { should belong_to(:category) }
-  it { should have_many(:ratings) }
+  it { should have_many(:reviews) }
 end

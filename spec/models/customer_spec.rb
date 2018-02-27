@@ -5,7 +5,7 @@ RSpec.describe Customer, type: :model do
   it { should have_db_column(:firstname).with_options(null: false) }
   it { should have_db_column(:lastname).with_options(null: false) }
   it { should have_many(:orders) }
-  it { should have_many(:ratings) }
+  it { should have_many(:reviews) }
   describe "validations" do
     password = "foobarfoobar"
     subject { create(
