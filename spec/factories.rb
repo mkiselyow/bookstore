@@ -4,8 +4,17 @@ FactoryBot.define do
   factory :admin_user do
     
   end
-  sequence :email do |n|
-    "person#{n}@gmail.com"
+
+  sequence :email do |n| 
+    Faker::Internet.email
+  end
+
+  sequence :firstname, aliases: [:first_name] do |n|
+    Faker::Name.first_name
+  end
+
+  sequence :lastname, aliases: [:last_name] do |n|
+    Faker::Name.last_name
   end
 
   factory :book, :class => 'Book' do
@@ -30,8 +39,8 @@ FactoryBot.define do
 
   factory :customer, :class => 'Customer' do
     email
-    firstname              "Test Customer"
-    lastname               "SomeSurname"
+    firstname              
+    lastname               
     encrypted_password     '12345678'
     password_confirmation  '12345678'
   end

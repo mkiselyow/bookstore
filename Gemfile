@@ -69,6 +69,10 @@ gem 'activeadmin', '~> 1.2.0'
 gem 'draper', '~> 3.0.0'
 gem 'omniauth', '~> 1.8', '>= 1.8.1'
 gem 'rails-i18n', '~> 5.1.0'
+gem 'aws-sdk', '< 3.0'
+gem 'paperclip', '~> 5.2.0'
+gem 's3_direct_upload', '~> 0.1.0'
+gem 'formtastic', '~> 3.0'
 
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.0'
