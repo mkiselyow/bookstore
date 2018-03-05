@@ -30,6 +30,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   config.before(:each) do
+    Faker::UniqueGenerator.clear
     Rails.application.load_seed # loading seeds
   end
 end

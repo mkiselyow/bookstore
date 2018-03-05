@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302162337) do
+ActiveRecord::Schema.define(version: 20180304211509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,10 +78,6 @@ ActiveRecord::Schema.define(version: 20180302162337) do
     t.datetime "updated_at", null: false
     t.bigint "author_id"
     t.bigint "category_id"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["category_id"], name: "index_books_on_category_id"
   end
@@ -130,6 +126,17 @@ ActiveRecord::Schema.define(version: 20180302162337) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "images", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.bigint "book_id"
+    t.index ["book_id"], name: "index_images_on_book_id"
+  end
+
   create_table "order_items", force: :cascade do |t|
     t.decimal "price", precision: 10, scale: 2, null: false
     t.integer "quantity", null: false
@@ -169,6 +176,7 @@ ActiveRecord::Schema.define(version: 20180302162337) do
   add_foreign_key "books", "authors"
   add_foreign_key "books", "categories"
   add_foreign_key "credit_cards", "customers"
+  add_foreign_key "images", "books", on_delete: :cascade
   add_foreign_key "order_items", "books"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "credit_cards"

@@ -6,7 +6,7 @@ FactoryBot.define do
   end
 
   sequence :email do |n| 
-    Faker::Internet.email
+    Faker::Internet.unique.email
   end
 
   sequence :firstname, aliases: [:first_name] do |n|
@@ -18,16 +18,17 @@ FactoryBot.define do
   end
 
   factory :book, :class => 'Book' do
-    title          Faker::Book.title
-    description    Faker::Book.genre
-    price          Faker::Commerce.price
-    books_in_stock Faker::Number.between(1, 25)
-    author_id      Author.all.sample
-    category_id    Category.all.sample
+    title         { Faker::Book.unique.title}
+    price          {Faker::Commerce.price}
+    books_in_stock {Faker::Number.between(1, 25)}
+    association :author, factory: :author
+    association :category, factory: :category
+    # author_id      Author.all.sample.id if Author.all.count >= 1
+    # category_id    Category.all.sample.id if Category.all.count >= 1
   end
 
   factory :category, :class => 'Category' do
-    title          Faker::Book.genre
+    title          {Faker::Book.unique.genre}
   end
 
   factory :author, :class => 'Author' do
