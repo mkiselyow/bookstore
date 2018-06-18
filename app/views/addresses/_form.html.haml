@@ -1,0 +1,22 @@
+.form-group.has-error
+  =f.label :firstname, t('.first_name'), class: 'control-label input-label', for: "firstName_#{model}"
+  =f.text_field :firstname, class: 'form-control', id: "firstName_#{model}", placeholder: t('.first_name'), name:"#{model}[fname]"
+%span.help-block=t('.warning_first_name')
+.form-group
+  =f.label :lastname, t('.last_name'), class: 'control-label input-label', for: "lastName_#{model}"
+  =f.text_field :lastname, class: 'form-control', id: "lastName_#{model}", placeholder: t('.last_name'), name:"#{model}[lname]"
+.form-group
+  =f.label :address, t('.address'), class: 'control-label input-label', for: "address_#{model}"
+  =f.text_field :address, class: 'form-control', id: "address_#{model}", placeholder: t('.address'), name:"#{model}[address]"
+.form-group
+  =f.label :city, t('.city'), class: 'control-label input-label', for: "city_#{model}"
+  =f.text_field :city, class: 'form-control', id: "city_#{model}", placeholder: t('.city'), name:"#{model}[city]"
+.form-group
+  =f.label :zipcode, t('.zipcode'), class: 'control-label input-label', for: "zipcode_#{model}"
+  =f.text_field :zipcode, class: 'form-control', id: "zipcode_#{model}", placeholder: t('.zipcode'), name:"#{model}[zipcode]"
+.form-group
+  =f.label :country_code, t('.country'), for: "country_code_#{model}"
+  =f.country_select("#{model}[country_code]", { priority_countries: ["UA", "GB"], selected: "UA", name:"#{model}[country_code]", id: "country_code_#{model}" }, { class: 'form-control', data: { attribute: "value" } })
+.form-group
+  =f.label :phone, t('.phone_number'), class: 'control-label input-label', for: "phone_#{model}"
+  =f.phone_field :phone, class: 'form-control', id: "phone_#{model}", placeholder: t('.phone_number_ex'), name:"#{model}[phone]"

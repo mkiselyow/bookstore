@@ -1,0 +1,29 @@
+%footer.navbar-inverse
+  .container
+    .row
+      .col-sm-9
+        %ul.list-inline.general-align.mb-25
+          %li
+            =link_to t('.home'), home_url, class: 'nav-link'
+          %li
+            =link_to t('.catalog'), books_url, class: 'nav-link'
+          %li
+            =link_to t('.orders'), orders_url, class: 'nav-link'
+          %li
+            =link_to t('.settings'), edit_customer_registration_url, class: 'nav-link'
+      .col-sm-3
+        %p.general-nav-mail support@bookstore.com
+        %p.general-nav-number (555)-555-5555
+        %ul.list-inline.general-align
+          %li
+            =link_to home_url, class: 'nav-link' do
+              %i.fa.fa-facebook{'aria-hidden': "true"}
+          %li
+            =link_to home_url, class: 'nav-link' do
+              %i.fa.fa-twitter{'aria-hidden': "true"}
+          %li
+            =link_to home_url, class: 'nav-link' do
+              %i.fa.fa-google-plus{'aria-hidden': "true"}
+          %li
+            =link_to home_url, class: 'nav-link' do
+              %i.fa.fa-instagram{'aria-hidden': "true"}

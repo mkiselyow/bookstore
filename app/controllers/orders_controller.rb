@@ -1,12 +1,11 @@
 class OrdersController < ApplicationController
   def index
+    @orders = Order.select('number, completed_date, status, total_price')
   end
 
-  def show
-    render "view_orders" 
-  end
+  def show; end
   
   def new
-    render "cart"
+    @order = Order.new
   end
 end

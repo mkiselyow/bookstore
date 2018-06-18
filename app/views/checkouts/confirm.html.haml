@@ -1,8 +1,28 @@
 %main.container.general-main-wrap
-  %h1.general-title-margin Order R25314582
+  %h1.general-title-margin Checkout
+  %ul.steps.list-inline
+    %li.step.active
+      %span.step-number 1
+      %span.step-text.hidden-xs Address
+    %li.step-divider
+    %li.step
+      %span.step-number 2
+      %span.step-text.hidden-xs Delivery
+    %li.step-divider
+    %li.step
+      %span.step-number 3
+      %span.step-text.hidden-xs Payment
+    %li.step-divider
+    %li.step
+      %span.step-number 4
+      %span.step-text.hidden-xs Confirm
+    %li.step-divider
+    %li.step
+      %span.step-number 5
+      %span.step-text.hidden-xs Complete
   .row.mb-20
     .col-sm-3
-      %h3.general-subtitle.mt-0 Shipping Address
+      %h3.general-subtitle Shipping Address
       %p.general-address
         John Doe
         %span.general-edit edit
@@ -15,7 +35,7 @@
         %br
         Phone +16507599755
     .col-sm-3
-      %h3.general-subtitle.mt-0 Billing Address
+      %h3.general-subtitle Billing Address
       %p.general-address
         John Doe
         %span.general-edit edit
@@ -28,14 +48,14 @@
         %br
         Phone +16507599755
     .col-sm-3
-      %h3.general-subtitle.mt-0 Shipments
+      %h3.general-subtitle Shipments
       %p.general-address
         Delivery Next Day!
         %span.general-edit edit
         %br
         By train
     .col-sm-3
-      %h3.general-subtitle.mt-0 Payment Information
+      %h3.general-subtitle Payment Information
       %p.general-address
         ** ** ** 8756
         %span.general-edit edit
@@ -135,32 +155,3 @@
           %strong.font-18 €117.69
   .text-center
     %button.btn.btn-default.mb-20 Place Order
-%footer.navbar-inverse
-  .container
-    .row
-      .col-sm-9
-        %ul.list-inline.general-align.mb-25
-          %li
-            %a.nav-link{href: "#"} Home
-          %li
-            %a.nav-link{href: "#"} Shop
-          %li
-            %a.nav-link{href: "#"} Orders
-          %li
-            %a.nav-link{href: "#"} Settings
-      .col-sm-3
-        %p.general-nav-mail support@bookstore.com
-        %p.general-nav-number (555)-555-5555
-        %ul.list-inline.general-align
-          %li
-            %a.nav-link{href: "#"}
-              %i.fa.fa-facebook{'aria-hidden': "true"}
-          %li
-            %a.nav-link{href: "#"}
-              %i.fa.fa-twitter{'aria-hidden': "true"}
-          %li
-            %a.nav-link{href: "#"}
-              %i.fa.fa-google-plus{'aria-hidden': "true"}
-          %li
-            %a.nav-link{href: "#"}
-              %i.fa.fa-instagram{'aria-hidden': "true"}

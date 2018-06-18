@@ -1,0 +1,12 @@
+=link_to home_url, data: { toggle: 'dropdown' }, aria: { hashpopup: 'true', expanded: 'false' }, class: 'dropdown-toggle lead small', role: 'button' do
+  =t('.newest_first')
+  %i.fa.fa-angle-down.dropdown-icon.pull-right
+%ul.dropdown-menu
+  %li
+    =link_to t('.newest_first')
+  %li
+    =link_to t('.popular_first')
+  %li
+    =link_to t('.low_to_hight')
+  %li
+    =link_to t('.low_to_hight')

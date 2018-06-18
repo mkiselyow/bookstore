@@ -1,33 +1,101 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  books:
+    home:
+      order_summary:      'Order Summary'
+      checkout:           'Checkout'
+      address:            'Address'
+      delivery:           'Delivery'
+      payment:            'Payment'
+      confirm:            'Confirm'
+      complete:           'Complete'
+      all_fields_are_required: 'all fields are required'
+      billing_address:     'Billing Address'
+      all_fields_are_required: 'all fields are required'
+      shipping_address:    'Shipping Address'
+      use_billing_address: 'Use Billing Adress'
+      order_summary:       'Order Summary'
+      item_total:          'Item Total:'
+      order_total:         'Order Total:'
+      save_and_continue:   'Save and Continue'
+      get_started:         'Get Started'
+    index:
+      all:            'All'
+      catalog:        'Catalog'
+      sort_by:        'Sort by'
+      mobile_dev:     'Mobile Development'
+      photo:          'Photo'
+      web_design:     'Web Design'
+      filter_by_cat:  'Filter by category'
+      newest_first:   'Newest first'
+      popular_first:  'Popular first'
+      low_to_hight:   'Price: Low to hight'
+      view_more:      'View More'
+    index_filters:
+      all:            'All'
+      mobile_dev:     'Mobile Development'
+      photo:          'Photo'
+      web_design:     'Web Design'
+    index_dropdown:
+      newest_first:   'Newest first'
+      popular_first:  'Popular first'
+      low_to_hight:   'Price: Low to hight'
+  addresses:
+    form:
+      first_name:       'First Name'
+      last_name:        'Last Name'
+      address:          'Address'
+      city:             'City'
+      zipcode:          'Zipcode'
+      country:          'Country'
+      phone_number:     'Phone Number'
+      phone_number_ex:  'Example +355 66 123 4567'
+      warning_first_name: 'Please enter your first name'
+  orders:
+    index:
+      my_orders:      'My Orders'
+      sort_by:        'Sort by'
+      waiting_for_processing: 'Waiting for processing'
+      newest_first:   'Newest first'
+      popular_first:  'Popular first'
+      low_to_hight:   'Price: Low to hight'
+      number:         'Number'
+      completed_at:   'Completed at'
+      status:         'Status'
+      total:          'Total'
+      delivered:      'Delivered'
+    new: 
+      cart:           'Cart'
+      price:          'Price'
+      quantity:       'Quantity'
+      subtotal:       'SubTotal'
+      subtotal2:      'SubTotal :'
+      product:        'Product'
+      enter_code:     'Enter Your Coupon Code'
+      apply_coupon:   'Apply Coupon'
+      update:         'Update'
+      order_summary:  'Order Summary'
+      coupon:         'Coupon'
+      coupon2:        'Coupon :'
+      checkout:       'Checkout'
+      order_total2:   'Order Total :'
+      apply_cart:     'Apply Cart'
+  layouts:
+    header:
+      bookstore:  'Bookstore'
+      home:       'Home'
+      catalog:    'Catalog'
+      shop:       'Shop'
+      mobile_dev: 'Mobile development'
+      photo:      'Photo'
+      web_design: 'Web design'
+      my_account: 'My account'
+      sign_in:    'Sign in'
+      sign_up:    'Sign up'
+      en:         'English'
+      ru:         'Russian'
+      log_out:    'Log out'
+    footer:
+      home:       'Home'
+      catalog:    'Catalog'
+      orders:     'Orders'
+      settings:   'Settings'

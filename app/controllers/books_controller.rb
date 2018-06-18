@@ -1,12 +1,15 @@
 class BooksController < ApplicationController
   def index
+    @books = Book.ordered_by_title
   end
 
   def home
-    render "home"
+    @books = Book.ordered_by_title
+    @best_sellers = Book.limit(4)
+    # flash[:notice] = "Post successfully created"
   end
 
   def show
-    render "book_page"
+    @book = Book.find(params[:id])
   end
 end
