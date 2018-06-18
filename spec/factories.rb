@@ -42,7 +42,6 @@ FactoryBot.define do
     email
     firstname              
     lastname               
-    encrypted_password     '12345678'
-    password_confirmation  '12345678'
+    password     '12345678'
   end
 end
