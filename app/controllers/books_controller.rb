@@ -1,10 +1,12 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.ordered_by_title
   end
 
   def home
-    flash[:notice] = "Post successfully created"
+    @books = Book.ordered_by_title
+    @best_sellers = Book.limit(4)
+    # flash[:notice] = "Post successfully created"
   end
 
   def show

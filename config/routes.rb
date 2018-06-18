@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   scope "(:locale)", locale: /en|ru/ do
-    devise_for :customers, skip: :omniauth_callbacks
+    devise_for :customer, skip: :omniauth_callbacks
     # resources :address, 
     #           :author, 
     #           :billing_address, 
@@ -13,10 +13,14 @@ Rails.application.routes.draw do
     #           :order_item, 
     #           :rating, 
     #           :shipping_address
+    devise_scope :customers do
+      delete 'sign_out', :to => 'devise/sessions#destroy'#, :as => :destroy_customer_session
+    end
     resources :books, only: %i(index show)
     resources :orders, only: %i(index show new)
     get 'book_by_title/:title', to: 'books#show', as: "book_by_title"
     post 'addresses', to: 'addresses#create'
+    post 'order_items', to: 'order_items#create', as: "add_to_cart"
     root to: 'books#home', as: "home"
     get 'checkout/complete', to: 'checkouts#complete'
     get 'checkout/confirm', to: 'checkouts#confirm'

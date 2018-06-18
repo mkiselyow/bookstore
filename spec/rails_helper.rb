@@ -23,6 +23,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+  config.extend ControllerMacros, type: :controller
   config.before(:each) do
     DatabaseCleaner.start
   end
@@ -32,6 +33,9 @@ RSpec.configure do |config|
   config.before(:each) do
     Faker::UniqueGenerator.clear
     Rails.application.load_seed # loading seeds
+  end
+  config.before(:each, type: :feature) do
+    Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
   end
 end
 

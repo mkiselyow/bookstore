@@ -15,6 +15,7 @@ ru:
       item_total:           'Итого:'
       order_total:          'Весь заказ:'
       save_and_continue:    'Сохранить и продолжить'
+      get_started:          'Начать'
     index:
       all:            'Все'
       catalog:        'Каталог'
