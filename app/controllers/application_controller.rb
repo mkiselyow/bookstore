@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     I18n.locale = extract_locale || I18n.default_locale
   end
 
+  def current_ability
+    @current_ability ||= Ability.new(current_customer)
+  end
+
   private
 
   def layout_by_resource
