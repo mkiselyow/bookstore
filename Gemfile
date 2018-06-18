@@ -73,6 +73,7 @@ gem 'aws-sdk', '< 3.0'
 gem 'paperclip', '~> 5.2.0'
 gem 's3_direct_upload', '~> 0.1.0'
 gem 'formtastic', '~> 3.0'
+gem 'omniauth-facebook', '~> 4.0.0'
 
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.0'
