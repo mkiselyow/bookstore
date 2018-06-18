@@ -21,8 +21,6 @@
           %li
             =link_to t('.home'), home_url
           %li
-            =link_to t('.catalog'), books_url
-          %li
             =button_to t('.shop'), books_url, data_toggle: 'collapse', aria_expanded: 'false', aria_controls: 'menu', id: 'menu'
             %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
               %li
@@ -45,10 +43,7 @@
         %ul.nav.navbar-nav
           %li
             =link_to t('.home'), home_url
-          %li
-            =link_to t('.catalog'), books_url
           %li.dropdown
-            
             %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}=t('.shop')
             %ul.dropdown-menu
               %li

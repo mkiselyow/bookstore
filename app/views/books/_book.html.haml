@@ -1,15 +1,19 @@
 .col-xs-6.col-sm-3
   .general-thumb-wrap
-    .thumbnail.general-thumbnail
+    =tag.div class: "thumbnail general-thumbnail #{'disabled' if book.books_in_stock < 2}" do
       %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
       .thumb-hover
         .general-thumb-link-wrap
-          %a.thumb-hover-link{href: "#"}
+          =link_to book_path(id: book.id), class: 'thumb-hover-link' do
             %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
-          %a.thumb-hover-link{href: "#"}
+          =link_to add_to_cart_path(book: book.id), method: :post, class: 'thumb-hover-link' do
             %i.fa.fa-shopping-cart.thumb-icon
   .general-thumb-info
     =tag.p( book.title, class: 'title' )
     =tag.p( book.price_in_eu, class: 'font-16 in-gold-500' )
     %span.divider-sm
     =tag.p( book.author.full_name, class: 'lead small' )
+    -# -if can? :read, book
+    -#   =link_to "Show Again", books_path(book)
+    -# -if can? :show, book
+    -#   =link_to "Update Again", books_path(book)
