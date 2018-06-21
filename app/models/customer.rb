@@ -28,7 +28,7 @@ class Customer < ApplicationRecord
       #customer.image = auth.info.image # assuming the customer model has an image
       # If you are using confirmable and the provider(s) you use validate emails, 
       # uncomment the line below to skip the confirmation emails.
-      # customer.skip_confirmation!
+      customer.skip_confirmation!
     end
   end
 
