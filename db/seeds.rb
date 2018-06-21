@@ -7,6 +7,7 @@ FactoryBot.create_list(:book, 20)
 password = "foobar"
 Customer.all.each(&:destroy)
 FactoryBot.create_list(:customer, 5, password: password, password_confirmation: password)
+AdminUser.all.each(&:destroy)
 AdminUser.create!(
   email: ACTIVE_ADMIN_LOGIN, 
   password: ACTIVE_ADMIN_PASSWORD, 

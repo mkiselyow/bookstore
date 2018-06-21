@@ -8,7 +8,7 @@ FactoryBot.define do
   sequence :email do |n| 
     Faker::Internet.unique.email
   end
-
+  
   sequence :firstname, aliases: [:first_name] do |n|
     Faker::Name.first_name
   end
@@ -18,7 +18,7 @@ FactoryBot.define do
   end
 
   factory :book, :class => 'Book' do
-    title         { Faker::Book.unique.title}
+    title         {Faker::Book.unique.title}
     price          {Faker::Commerce.price}
     books_in_stock {Faker::Number.between(1, 25)}
     association :author, factory: :author
@@ -32,16 +32,15 @@ FactoryBot.define do
   end
 
   factory :author, :class => 'Author' do
-    full_name = Faker::Book.author
-    words_full_name = full_name.split(' ').length
-    firstname         words_full_name == 2 ? full_name.split(' ').first : full_name.split(' ').first(2)
-    lastname          full_name.split(' ').last
+    firstname
+    lastname
   end
 
   factory :customer, :class => 'Customer' do
     email
     firstname              
     lastname               
-    password     '12345678'
+    password '12345678'
+    confirmed_at Time.now
   end
 end

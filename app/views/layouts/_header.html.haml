@@ -39,6 +39,8 @@
             =link_to t('.en'), "http://en.localhost:3000#{request.env['PATH_INFO']}"
           %li
             =link_to t('.ru'), "http://ru.localhost:3000#{request.env['PATH_INFO']}"
+          %li
+            =link_to t('.log_out'), destroy_customer_session_url, method: :delete
       .hidden-xs
         %ul.nav.navbar-nav
           %li
@@ -65,3 +67,5 @@
             =link_to t('.en'), "http://en.localhost:3000#{request.env['PATH_INFO']}"
           %li
             =link_to t('.ru'), "http://ru.localhost:3000#{request.env['PATH_INFO']}"
+          %li
+            =link_to t('.log_out'), destroy_customer_session_url, method: :delete

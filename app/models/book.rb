@@ -18,6 +18,6 @@ class Book < ApplicationRecord
   end
 
   def default_image_url(style)
-    "https://s3.eu-central-1.amazonaws.com/bookstore-kiselyow/books/images/default/#{style}/no_image.jpg"
+    "https://s3.eu-central-1.amazonaws.com/bookstore-rubygarage/books/images/default/#{style}/no_image.jpg"
   end
 end
