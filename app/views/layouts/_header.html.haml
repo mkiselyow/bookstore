@@ -29,18 +29,23 @@
                 =link_to t('.photo'), class: 'collapse-link'
               %li
                 =link_to t('.web_design'), class: 'collapse-link'
-          %li
-            =link_to t('.my_account'), edit_customer_registration_url
-          %li
-            =link_to t('.sign_in'), new_customer_session_url
-          %li
-            =link_to t('.sign_up'), new_customer_registration_url
+          -if current_customer
+            %li
+              =link_to t('.my_account'), edit_customer_registration_url
+            %li
+              =link_to t('.log_out'), destroy_customer_session_url, method: :delete
+          -else
+            %li
+              =link_to t('.sign_in'), new_customer_session_url
+            %li
+              =link_to t('.sign_up'), new_customer_registration_url
           %li
             =link_to t('.en'), "http://en.localhost:3000#{request.env['PATH_INFO']}"
           %li
             =link_to t('.ru'), "http://ru.localhost:3000#{request.env['PATH_INFO']}"
-          %li
-            =link_to t('.log_out'), destroy_customer_session_url, method: :delete
+          -if current_customer
+            %li
+              =link_to t('.log_out'), destroy_customer_session_url, method: :delete
       .hidden-xs
         %ul.nav.navbar-nav
           %li
@@ -55,17 +60,18 @@
               %li
                 =link_to t('.web_design')
               %li.divider{role: "separator"}
-              %li
-                =link_to t('.log_out'), destroy_customer_session_url
-          %li
-            =link_to t('.my_account'), edit_customer_registration_url
-          %li
-            =link_to t('.sign_in'), new_customer_session_url
-          %li
-            =link_to t('.sign_up'), new_customer_registration_url
+
+          -if current_customer
+            %li
+              =link_to t('.my_account'), edit_customer_registration_url
+            %li
+              =link_to t('.log_out'), destroy_customer_session_url, method: :delete
+          -else
+            %li
+              =link_to t('.sign_in'), new_customer_session_url
+            %li
+              =link_to t('.sign_up'), new_customer_registration_url
           %li
             =link_to t('.en'), "http://en.localhost:3000#{request.env['PATH_INFO']}"
           %li
             =link_to t('.ru'), "http://ru.localhost:3000#{request.env['PATH_INFO']}"
-          %li
-            =link_to t('.log_out'), destroy_customer_session_url, method: :delete

@@ -1,6 +1,9 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :role do
+    
+  end
   factory :admin_user do
     
   end
@@ -22,9 +25,9 @@ FactoryBot.define do
     price          {Faker::Commerce.price}
     books_in_stock {Faker::Number.between(1, 25)}
     association :author, factory: :author
-    association :category, factory: :category
-    # author_id      Author.all.sample.id if Author.all.count >= 1
-    # category_id    Category.all.sample.id if Category.all.count >= 1
+    association :category, factory: :category 
+
+    
   end
 
   factory :category, :class => 'Category' do
