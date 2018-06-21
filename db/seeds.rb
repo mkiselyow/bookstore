@@ -12,3 +12,6 @@ AdminUser.create!(
   email: ACTIVE_ADMIN_LOGIN, 
   password: ACTIVE_ADMIN_PASSWORD, 
   password_confirmation: ACTIVE_ADMIN_PASSWORD) if Rails.env.development? || Rails.env.test?
+['logged in', 'guest'].each do |role|
+  Role.find_or_create_by({name: role})
+end
