@@ -1,5 +1,5 @@
 require 'faker'
-
+Faker::UniqueGenerator.clear
 Book.all.each(&:destroy)
 Author.all.each(&:destroy)
 Category.all.each(&:destroy)

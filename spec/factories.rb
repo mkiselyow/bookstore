@@ -25,13 +25,13 @@ FactoryBot.define do
     price          {Faker::Commerce.price}
     books_in_stock {Faker::Number.between(1, 25)}
     association :author, factory: :author
-    association :category, factory: :category 
+    category_id {Category.all.count > 10 ? Category.all.sample.id : FactoryBot.create(:category).id}
 
     
   end
 
   factory :category, :class => 'Category' do
-    title          {Faker::Book.unique.genre}
+    title {Faker::Book.unique.genre}
   end
 
   factory :author, :class => 'Author' do
@@ -45,5 +45,41 @@ FactoryBot.define do
     lastname               
     password '12345678'
     confirmed_at Time.now
+  end
+
+  factory :order_item, class: 'OrderItem' do
+    price 0
+    quantity {Faker::Number.between(1, 3)}
+    association :order
+    association :book
+  end
+
+  factory :order, class: 'Order' do
+    total_price     {Faker::Commerce.price}
+    completed_date  { Faker::Date.between(2.days.ago, Date.today)}
+    state           { %w(in_progress complited shipped).sample }
+    association :customer
+    association :credit_card
+  end
+
+  factory :order_with_order_items, class: 'Order' do
+    total_price     {Faker::Commerce.price}
+    completed_date  { Faker::Date.between(2.days.ago, Date.today)}
+    state           { %w(in_progress complited shipped).sample }
+    association :customer
+    association :credit_card
+    after :create do |order_with_order_items|
+      create_list :order_item, 3, order: order_with_order_items
+    end
+  end
+
+  factory :credit_card, class: 'CreditCard' do
+    number            {Faker::Business.credit_card_number}
+    cvv               {Faker::Number.number(3)}
+    expiration_month  {Faker::Business.credit_card_expiry_date.month}
+    expiration_year   {Faker::Business.credit_card_expiry_date.year}
+    firstname
+    lastname
+    association :customer
   end
 end
