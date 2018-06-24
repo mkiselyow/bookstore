@@ -1,19 +1,16 @@
 class Customer < ApplicationRecord
+  rolify
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: %i[facebook]
-  # validates :email, uniqueness: true
-  validates_uniqueness_of :email
+  validates_uniqueness_of :email, case_sensitive: false
   has_many :orders
   has_many :reviews
+  after_create :assign_default_role
 
-  # def create_order
-  # end
 
-  # def current_order_progress
-  # end
 
   def email=(value)
     super(value.downcase)
@@ -39,4 +36,12 @@ class Customer < ApplicationRecord
       end
     end
   end
+
+  def assign_default_role
+    self.add_role(:guest) if self.roles.blank?
+  end
+  # def current_order_progress
+  # end
+  # def create_order
+  # end
 end

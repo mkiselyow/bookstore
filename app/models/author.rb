@@ -1,6 +1,5 @@
 class Author < ApplicationRecord
-  validates :firstname, presence: true
-  validates :lastname, presence: true
+  validates :firstname, :lastname, presence: true
   has_many :books
 
   def full_name

@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   validates :title, :price, :books_in_stock, presence: true
   belongs_to :author
   belongs_to :category
+
   has_many :reviews
   has_many :images, dependent: :delete_all
   accepts_nested_attributes_for :images, :allow_destroy => true

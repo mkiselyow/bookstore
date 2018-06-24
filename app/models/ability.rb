@@ -5,6 +5,8 @@ class Ability
     can :read, :all # permissions for every customer, even if not logged in    
     if customer.present?  # additional permissions for logged in users (they can manage their posts)
       can :manage, Order, customer_id: customer.id 
+      can :manage, LineItem, customer_id: customer.id 
+      can :manage, OrderItem, customer_id: customer.id 
       # if customer.admin?  # additional permissions for administrators
       #   can :manage, :all
       # end

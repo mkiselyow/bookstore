@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   scope "(:locale)", locale: /en|ru/ do
-    devise_for :customer, skip: :omniauth_callbacks
+    devise_for :customer, controllers: {
+      sessions: 'customers/sessions',
+      registrations: 'customers/registrations'
+      }, skip: :omniauth_callbacks
     # resources :address, 
     #           :author, 
     #           :billing_address, 

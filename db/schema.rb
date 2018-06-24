@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620144652) do
+ActiveRecord::Schema.define(version: 20180624164323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,14 @@ ActiveRecord::Schema.define(version: 20180620144652) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "customers_roles", id: false, force: :cascade do |t|
+    t.bigint "customer_id"
+    t.bigint "role_id"
+    t.index ["customer_id", "role_id"], name: "index_customers_roles_on_customer_id_and_role_id"
+    t.index ["customer_id"], name: "index_customers_roles_on_customer_id"
+    t.index ["role_id"], name: "index_customers_roles_on_role_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -141,7 +149,7 @@ ActiveRecord::Schema.define(version: 20180620144652) do
 
   create_table "order_items", force: :cascade do |t|
     t.decimal "price", precision: 10, scale: 2, null: false
-    t.integer "quantity", null: false
+    t.integer "quantity", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "order_id"
@@ -172,6 +180,16 @@ ActiveRecord::Schema.define(version: 20180620144652) do
     t.bigint "customer_id"
     t.index ["book_id"], name: "index_reviews_on_book_id"
     t.index ["customer_id"], name: "index_reviews_on_customer_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
   add_foreign_key "addresses", "orders"

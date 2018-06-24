@@ -1,9 +1,6 @@
 class Order < ApplicationRecord
-  validates :total_price, presence: true
-  validates :completed_date, presence: true
-  enum state: ["in progress", "complited", "shipped"]
-  validates :state, presence: true, inclusion: { in: Order.states.keys,
-  :message => "%{value} is not in_progress/complited/shipped" }
+  validates :total_price,:completed_date, :state, presence: true
+  enum state: ["in_progress", "complited", "shipped"]
   has_many :order_items
   has_one :shipping_address
   has_one :billing_address
