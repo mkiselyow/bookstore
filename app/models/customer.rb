@@ -5,8 +5,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: %i[facebook]
-  # validates :email, uniqueness: true
-  validates_uniqueness_of :email
+  validates_uniqueness_of :email, case_sensitive: false
   has_many :orders
   has_many :reviews
   after_create :assign_default_role
