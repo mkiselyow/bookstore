@@ -8,4 +8,4 @@
       =tag.p( book.description, class: 'lead' )
       =tag.p( book.author.full_name, class: 'lead small' )
       .general-align
-        =link_to 'Buy Now', add_to_cart_path(book: book.id), method: :post, class: 'btn btn-primary'
+        =link_to 'Buy Now', add_to_cart_path(order_item: {book_id: book.id}), method: :post, class: 'btn btn-primary'
