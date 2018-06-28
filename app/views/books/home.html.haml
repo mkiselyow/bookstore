@@ -6,11 +6,11 @@
       %li{'data-target': "#slider", 'data-slide-to': "2"}
     .carousel-inner{role: "listbox"}
       .item.active
-        =render partial: 'book_in_slider', locals: {book: @books.limit(1)[0]}    
+        =render partial: 'book_in_slider', locals: {book: @books_latest_for_slider.limit(1)[0]}    
       .item
-        =render partial: 'book_in_slider', locals: {book: @books.offset(1).limit(1)[0]}   
+        =render partial: 'book_in_slider', locals: {book: @books_latest_for_slider.offset(1).limit(1)[0]}   
       .item
-        =render partial: 'book_in_slider', locals: {book: @books.offset(2).limit(1)[0]}   
+        =render partial: 'book_in_slider', locals: {book: @books_latest_for_slider.offset(2).limit(1)[0]}   
     %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
       %span.icon-prev{'aria-hidden': "true"}
       %span.sr-only Previous
@@ -26,4 +26,7 @@
   .mb-35
     %h3 Best Sellers
     .row
-      =render partial: 'book', collection: @best_sellers, as: :book
+      =render partial: 'book', locals: { book: @books.best_seller_mobile.first }
+      =render partial: 'book', locals: { book: @books.best_seller_photo.first }
+      =render partial: 'book', locals: { book: @books.best_seller_design.first }
+      =render partial: 'book', locals: { book: @books.best_seller_web.first }
