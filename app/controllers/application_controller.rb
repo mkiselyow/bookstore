@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout_by_resource
   before_action :set_locale
-  # before_action :current_or_guest_customer
+  before_action :current_or_guest_customer
 
   def extract_locale
     parsed_locale = request.host.split('.').first
@@ -20,11 +20,11 @@ class ApplicationController < ActionController::Base
   # if user is logged in, return current_customer, else return guest_customer
   def current_or_guest_customer
     if current_customer
-      if session[:guest_customer_id] && session[:guest_customer_id] != current_customer.id
+      if session[:guest_customer] && session[:guest_customer] != current_customer
         logging_in
         # reload guest_customer to prevent caching problems before destruction
         guest_customer(with_retry = false).try(:reload).try(:destroy)
-        session[:guest_customer_id] = nil
+        session[:guest_customer] = nil
       end
       current_customer
     else
@@ -36,10 +36,10 @@ class ApplicationController < ActionController::Base
   # creating one as needed
   def guest_customer(with_retry = true)
     # Cache the value the first time it's gotten.
-    @cached_guest_customer ||= Customer.find(session[:guest_customer_id] ||= create_guest_customer.id)
+    @cached_guest_customer ||= session[:guest_customer] ||= create_guest_customer
 
   rescue ActiveRecord::RecordNotFound # if session[:guest_customer_id] invalid
-    session[:guest_customer_id] = nil
+    session[:guest_customer] = nil
     guest_customer if with_retry
   end
 
@@ -65,8 +65,7 @@ class ApplicationController < ActionController::Base
 
   def create_guest_customer
     customer = Customer.new(:email => "guest_customer_#{Time.now.to_i}#{rand(100)}@example.com")
-    customer.save!(:validate => false)
-    session[:guest_customer_id] = customer.id
+    session[:guest_customer] = customer
     customer
   end
 end
