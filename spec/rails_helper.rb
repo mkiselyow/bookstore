@@ -4,6 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'support/custom_rspec_helpers'
+require "rack_session_access/capybara"
 
 ActiveRecord::Migration.maintain_test_schema!
 
