@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   def home
     @books = Book.ordered_by_title
-    @best_sellers = Book.limit(4)
+    @books_latest_for_slider = Book.latest_added.limit(3)
     # flash[:notice] = "Post successfully created"
   end
 

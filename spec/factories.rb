@@ -23,10 +23,10 @@ FactoryBot.define do
   factory :book, :class => 'Book' do
     title         {Faker::Book.unique.title}
     price          {Faker::Commerce.price}
+    sold           {Faker::Number.between(0, 10)}
     books_in_stock {Faker::Number.between(1, 25)}
     association :author, factory: :author
-    category_id {Category.all.count > 10 ? Category.all.sample.id : FactoryBot.create(:category).id}
-
+    category_id {Category.all.count > 3 ? Category.all.sample.id : FactoryBot.create(:category).id}
     
   end
 
@@ -81,5 +81,19 @@ FactoryBot.define do
     firstname
     lastname
     association :customer
+  end
+
+  factory :customer_with_everything, :class => 'Customer' do
+    email
+    firstname              
+    lastname               
+    password '12345678'
+    confirmed_at Time.now
+    after :create do |customer_with_everything|
+      create_list :credit_card, 1, customer: customer_with_everything
+      create_list :order_with_order_items, 3,
+       customer: customer_with_everything,
+        credit_card: customer_with_everything.credit_cards.first
+    end
   end
 end

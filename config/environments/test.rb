@@ -40,6 +40,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.default_url_options = { :host => "localhost", port: 3000 }
+  config.middleware.use RackSessionAccess::Middleware
 end
 ACTIVE_ADMIN_PASSWORD = Rails.application.secrets.active_admin_password
 ACTIVE_ADMIN_LOGIN    = Rails.application.secrets.active_admin_login
