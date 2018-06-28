@@ -6,10 +6,10 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: %i[facebook]
   validates_uniqueness_of :email, case_sensitive: false
-  has_many :orders
-  has_many :reviews
+  has_many :orders, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :credit_cards, dependent: :destroy
   after_create :assign_default_role
-
 
 
   def email=(value)
