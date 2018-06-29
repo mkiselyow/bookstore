@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
   before_action :set_locale
   before_action :current_or_guest_customer
+  before_action :set_order_items_count
 
   def extract_locale
     parsed_locale = request.host.split('.').first
@@ -67,5 +68,15 @@ class ApplicationController < ActionController::Base
     customer = Customer.new(:email => "guest_customer_#{Time.now.to_i}#{rand(100)}@example.com")
     session[:guest_customer] = customer
     customer
+  end
+
+  def set_order_items_count
+    @order_items_count = if session[:order_items]
+      session[:order_items].count
+    elsif current_customer && current_customer.order_items
+      current_customer.order_items.count
+    else
+      0
+    end
   end
 end
