@@ -23,6 +23,9 @@ class Book < ApplicationRecord
   scope :best_seller_web,
    -> { reorder(sold: :desc).
     where(category_id: Category.where(title: 'Web development')) }
+  scope :most_popular, -> { reorder(sold: :desc) }
+  scope :hight_to_low, -> { reorder(price: :desc) }
+  scope :low_to_hight, -> { reorder(price: :asc) }
 
   def price_in_eu
     ActionController::Base.helpers.number_to_currency(

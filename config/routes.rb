@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     get 'des/new_password', to: 'des#new_password'
     get 'des/password', to: 'des#password'
     get 'des/settings', to: 'des#settings'
+    post '/books', to: 'books#index'
   end
   devise_for :customers, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'customers/omniauth_callbacks'}
 end
