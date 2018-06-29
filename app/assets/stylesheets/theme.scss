@@ -559,3 +559,19 @@
     }
   }
 }
+
+.form_with_special_arrow select{       
+ -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form_with_special_arrow:after {
+  content: "\f107";
+  font-family: FontAwesome;
+  color: #8c8c8c;
+  position: absolute;
+  right: 18px;
+  top: 10px;
+  transform: scale(1.3); 
+}

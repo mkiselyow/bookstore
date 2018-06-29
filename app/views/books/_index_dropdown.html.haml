@@ -1,7 +1,11 @@
+=form_with model: @book, html: {class: "form_with_special_arrow"} do |f|
+  = select_tag(:filter, options_for_select([[t('.all_filter'), 1], [t('.newest_first'), 2], [t('.popular_first'), 3], [t('.low_to_hight'), 4], [t('.low_to_hight'), 5]]), class: 'dropdown-toggle lead small', id: 'unique_id', data: { toggle: 'dropdown' }, aria: { hashpopup: 'true', expanded: 'false', role: 'button' }, style: "background-color: #fff;")
 =link_to home_url, data: { toggle: 'dropdown' }, aria: { hashpopup: 'true', expanded: 'false' }, class: 'dropdown-toggle lead small', role: 'button' do
   =t('.newest_first')
   %i.fa.fa-angle-down.dropdown-icon.pull-right
 %ul.dropdown-menu
+  %li
+    =link_to t('.all_filter')
   %li
     =link_to t('.newest_first')
   %li

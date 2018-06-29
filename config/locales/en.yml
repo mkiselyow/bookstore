@@ -36,9 +36,11 @@ en:
       photo:          'Photo'
       web_design:     'Web Design'
     index_dropdown:
+      all_filter:     'All'
       newest_first:   'Newest first'
       popular_first:  'Popular first'
       low_to_hight:   'Price: Low to hight'
+      hight_to_low:   'Price: Hight to low'
   addresses:
     form:
       first_name:       'First Name'

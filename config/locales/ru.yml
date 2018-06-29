@@ -34,9 +34,11 @@ ru:
       photo:          'Фото'
       web_design:     'Веб дизайн'
     index_dropdown:
+      all_filter:     'Все'
       newest_first:   'Новые вначале'
       popular_first:  'Популярные вначале'
       low_to_hight:   'Цена: От Дешевых к Дорогим'
+      hight_to_low:   'Цена: От Дорогих к Дешевым'
   addresses:
     form:
       first_name:         'Имя'
