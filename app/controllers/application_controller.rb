@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
     # Cache the value the first time it's gotten.
     @cached_guest_customer ||= session[:guest_customer] ||= create_guest_customer
 
-  rescue ActiveRecord::RecordNotFound # if session[:guest_customer_id] invalid
+  rescue ActiveRecord::RecordNotFound # if session[:guest_customer] invalid
     session[:guest_customer] = nil
     guest_customer if with_retry
   end

@@ -27,11 +27,11 @@ class Book < ApplicationRecord
   scope :hight_to_low, -> { reorder(price: :desc) }
   scope :low_to_hight, -> { reorder(price: :asc) }
 
-  def price_in_eu
-    ActionController::Base.helpers.number_to_currency(
-      self.price, locale: :fr
-      )
-  end
+ 
+ 
+ 
+ 
+
 
   def default_image_url(style)
     "https://s3.eu-central-1.amazonaws.com/bookstore-rubygarage/books/images/default/#{style}/no_image.jpg"

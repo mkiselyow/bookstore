@@ -3,12 +3,9 @@ class OrderItemsController < ApplicationController
   
   def create
     @order_item = @order.order_items.build(order_item_params)
-    p order_item_params
-    p params
     if current_customer
       @order_item.save
     else
-      p 'session[:order_items] << @order_item'
       session[:order_items] ||= []
       session[:order_items] << @order_item
     end

@@ -9,6 +9,7 @@ class BooksController < ApplicationController
     else
       @books = Book.all
     end
+    @books_decorator = BooksDecorator.new(@books)
   end
 
   def home
