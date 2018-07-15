@@ -3,7 +3,7 @@ class Book < ApplicationRecord
   belongs_to :author
   belongs_to :category
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :order_items, dependent: :destroy
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true
