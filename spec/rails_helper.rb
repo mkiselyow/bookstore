@@ -12,10 +12,10 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
-  config.before(:each) do
+  config.before(:all) do
     DatabaseCleaner.strategy = :transaction
   end
-  config.before(:each, js: true) do
+  config.before(:all, js: true) do
     DatabaseCleaner.strategy = :truncation
   end
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -26,13 +26,13 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
   config.extend CustomRspecHelpers, type: :controller
-  config.before(:each) do
+  config.before(:all) do
     DatabaseCleaner.start
   end
-  config.after(:each) do
+  config.after(:all) do
     DatabaseCleaner.clean
   end
-  config.before(:each) do
+  config.before(:all) do
     Faker::UniqueGenerator.clear
     Rails.application.load_seed # loading seeds
   end

@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
   
   def new
     @order = Order.new
+    @order_items = session[:order_items] || []
   end
   
   def create
@@ -18,6 +19,11 @@ class OrdersController < ApplicationController
       session[:orders] << @order
     end
     redirect_to '/', notice: "Order Created"
+  end
+
+  def clear
+    session[:order_items] = []
+    redirect_to '/orders/new', notice: "Order Items Cleared"
   end
 
   private

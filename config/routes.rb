@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get 'book_by_title/:title', to: 'books#show', as: "book_by_title"
     post 'addresses', to: 'addresses#create'
     post 'order_items', to: 'order_items#create', as: "add_to_cart"
+    post 'orders/clear', to: 'orders#clear', as: "clear_cart"
     root to: 'books#home', as: "home"
     get 'checkout/complete', to: 'checkouts#complete'
     get 'checkout/confirm', to: 'checkouts#confirm'
