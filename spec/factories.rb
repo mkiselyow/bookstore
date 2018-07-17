@@ -27,7 +27,7 @@ FactoryBot.define do
     books_in_stock {Faker::Number.between(1, 25)}
     association :author, factory: :author
     category_id {Category.all.count > 3 ? Category.all.sample.id : FactoryBot.create(:category).id}
-    
+    description {Faker::Lorem.paragraph(15, true, 10)}
   end
 
   factory :category, :class => 'Category' do

@@ -15,11 +15,11 @@
           %a.img-link{href: "#"}
             %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
     .col-sm-6
-      %h1.mt-res-0 Real-Life Responsive Web Design
-      %p.lead.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
+      %h1.mt-res-0=@book.title
+      %p.lead.small=@book.author.full_name
       .row
         .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10 €32.90
+          %p.h1.in-gold-500.mt-10=@book.price_in_eu
         .col-xs-5.col-md-3
           .input-group.general-position
             %a.input-link{href: "#"}
@@ -28,12 +28,12 @@
             %a.input-link{href: "#"}
               %i.fa.fa-plus.line-height-40
         .col-xs-7.col-md-5
-          %button.btn.btn-default.pull-right.general-position Add to Cart
+          =link_to add_to_cart_path(book: @book.id), method: :post, class: 'btn btn-default pull-right' do
+            Add to Cart
       .general-info-wrap.divider-lg
         %p Description
         %p.lead.small.line-height-2
-          Smashing Book 5: Real-Life Responsive Web Design is our brand new, upcoming book with smart front-end techniques and design patterns derived from real-life responsive projects. With 13 chapters on responsive workflow, SVG, Flexbox, Web fonts, responsive images, responsive email, content strategy, debugging ...
-          %a.in-gold-500.ml-10{href: "#"} Read More
+          =render partial: 'book_description', locals: { book: @book}
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left Year of publication

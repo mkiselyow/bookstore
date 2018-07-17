@@ -1,0 +1,14 @@
+
+-if book.description && book.description.length > 400
+  = truncate(book.description, length: 400)
+  = link_to 'Read more', '', class: "in-gold-500 ml-10 read-more-#{book.id}"
+  :javascript
+    $('.read-more-#{book.id}').on('click', function(e) {
+      e.preventDefault()
+      $(this).parent().html('#{escape_javascript book.description}')
+    })
+-elsif book.description
+  = book.description
+-else
+  'Smashing Book 5: Real-Life Responsive Web Design is our brand new, upcoming book with smart front-end techniques and design patterns derived from real-life responsive projects. With 13 chapters on responsive workflow, SVG, Flexbox, Web fonts, responsive images, responsive email, content strategy, debugging ...'
+  %a.in-gold-500.ml-10{href: "#"} Read More
