@@ -2,10 +2,9 @@ require 'faker'
 
 FactoryBot.define do
   factory :role do
-    
   end
+  
   factory :admin_user do
-    
   end
 
   sequence :email do |n| 
@@ -28,6 +27,7 @@ FactoryBot.define do
     association :author, factory: :author
     category_id {Category.count > 3 ? Category.all.sample.id : FactoryBot.create(:category).id}
     description {Faker::Lorem.paragraph(15, true, 10)}
+    year_of_publication {Time.new(Faker::Number.between(1955, 2018))}
   end
 
   factory :category, :class => 'Category' do
