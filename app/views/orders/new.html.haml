@@ -1,7 +1,7 @@
 %main.container.general-main-wrap
   %h1.general-title-margin=t('.cart')
   .visible-xs
-    =render partial: 'order_items/order_item_mobile', collection: @order_items
+    =render partial: 'order_items/order_item_mobile', collection: @order_items, as: :order_item
   .hidden-xs
     %table.table.table-hover
       %tr.no-hover
@@ -15,7 +15,7 @@
         %th.col-total
           %span.in-grey-600=t('.subtotal')
         %th.col-close
-      =render partial: 'order_items/order_item', collection: @order_items
+      =render partial: 'order_items/order_item', collection: @order_items, as: :order_item
   .general-order-wrap
     .row
       .col-sm-4
